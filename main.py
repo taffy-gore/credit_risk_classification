@@ -86,7 +86,7 @@ def preprocess_data(X_train, X_test):
 
 x_train, x_test = preprocess_data(X_train, X_test)        
 
-# Train the model
+# Training the model
 
 # set parameter range for RandomSearchCV
 
