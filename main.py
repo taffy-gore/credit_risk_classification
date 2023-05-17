@@ -20,7 +20,7 @@ from sklearn.model_selection import RandomizedSearchCV
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score, f1_score, precision_score
 
 # load data
-data = "/Users/tafadzwagoremusandu/Documents/Credit Risk Prediction/credit_customers.csv"
+data = "/Path/credit_customers.csv"
 
 def load_data(data):
     
@@ -46,6 +46,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 
 
 # Data preprocessing
+
 class DataFrameSelector(BaseEstimator, TransformerMixin):
     def __init__(self,attribute_names):
         self.attribute_names=attribute_names
@@ -86,7 +87,7 @@ def preprocess_data(X_train, X_test):
 
 x_train, x_test = preprocess_data(X_train, X_test)        
 
-# Train the model
+# Training the model
 
 # set parameter range for RandomSearchCV
 
@@ -108,12 +109,10 @@ model.fit(x_train,y_train)
 # best combination of parameters
 model.best_params_
 
-print("best combination of parameters for the model:")
-pprint(model.best_estimator_.get_params())
-print("\n")
+# pprint(model.best_estimator_.get_params())
 
 
-# prediction scores on test set
+# Prediction on test set
 
 final_model = model.best_estimator_
 y_pred = final_model.predict(x_test)
