@@ -20,7 +20,7 @@ from sklearn.model_selection import RandomizedSearchCV
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score, f1_score, precision_score
 
 # load data
-data = "/Users/tafadzwagoremusandu/Documents/Credit Risk Prediction/credit_customers.csv"
+data = "/Path/credit_customers.csv"
 
 def load_data(data):
     
@@ -108,12 +108,10 @@ model.fit(x_train,y_train)
 # best combination of parameters
 model.best_params_
 
-print("best combination of parameters for the model:")
-pprint(model.best_estimator_.get_params())
-print("\n")
+# pprint(model.best_estimator_.get_params())
 
 
-# prediction scores on test set
+# Prediction on test set
 
 final_model = model.best_estimator_
 y_pred = final_model.predict(x_test)
