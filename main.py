@@ -58,8 +58,8 @@ class DataFrameSelector(BaseEstimator, TransformerMixin):
         return X[self.attribute_names].values
 
 def preprocess_data(X_train, X_test):
-    data_char = X_train.loc[:,df.dtypes==object]
-    data_num = X_train.loc[:,df.dtypes!=object]
+    data_char = X_train.loc[:,X_train.dtypes==object]
+    data_num = X_train.loc[:,X_train.dtypes!=object]
 
     # pipeline for raw data pre-processing 
     cat_attribs = list(data_char)
@@ -126,8 +126,14 @@ def train_model(x_train,x_test,y_train,y_test):
 
 
 
+# Load the data
+data = "/Users/Path/to/data.csv"
 X_train, X_test, y_train, y_test = load_data(data)
-x_train,x_test = preprocess_data(X_train, X_test)
+
+# Preprocess the data
+x_train, x_test = preprocess_data(X_train, X_test)
+
+# Train the model and get the evaluation metrics
 conf_matrix, classf_report = train_model(x_train, x_test, y_train, y_test)
 
 # Print the evaluation metrics
