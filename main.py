@@ -124,14 +124,14 @@ def train_model(x_train,x_test,y_train,y_test):
     
     return conf_matrix, classf_report
 
-    # print('Confusion Matrix:\n',conf_matrix)
-    # print("\n")
-    # print('Classification Report :\n', classf_report)
 
-if __name__ == "__main__":
-    X_train, X_test, y_train, y_test = load_data(data)
-    x_train,x_test = preprocess_data(X_train, X_test)
-    train = xgb.DMatrix(X_train, label=y_train)
-    valid = xgb.DMatrix(X_val, label=y_val)
-    train_model_search(train, valid, y_val)
-    train_best_model(train, valid, y_val, dv)
+
+X_train, X_test, y_train, y_test = load_data(data)
+x_train,x_test = preprocess_data(X_train, X_test)
+conf_matrix, classf_report = train_model(x_train, x_test, y_train, y_test)
+
+# Print the evaluation metrics
+print("Confusion Matrix:")
+print(conf_matrix)
+print("Classification Report:")
+print(classf_report)
