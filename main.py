@@ -21,7 +21,7 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score, f1_score, precision_score
 
 # load data
-data = data = "/Users/tafadzwagoremusandu/Documents/Credit Risk Prediction/credit_customers.csv"
+data = "/Users/tafadzwagoremusandu/Documents/Credit Risk Prediction/credit_customers.csv"
 
 def load_data(data):
     
